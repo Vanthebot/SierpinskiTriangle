@@ -1,3 +1,7 @@
+int myColorOne = color((int)(Math.random()*74)+1, (int)(Math.random()*74)+1, (int)(Math.random()*74)+1);
+int myColorTwo = color((int)(Math.random()*74)+81, (int)(Math.random()*74)+81, (int)(Math.random()*74)+81);
+int myColorThree = color((int)(Math.random()*74)+161, (int)(Math.random()*74)+161, (int)(Math.random()*74)+161);
+
 public void setup()
 {
   size(400,400);
@@ -9,7 +13,10 @@ public void draw()
 }
 public void mousePressed()//optional
 {
-  sierpinski(100, 200, 190);             ////////here
+  myColorOne = color((int)(Math.random()*74)+161, (int)(Math.random()*74)+161, (int)(Math.random()*74)+161);
+  myColorTwo = color((int)(Math.random()*74)+1, (int)(Math.random()*74)+1, (int)(Math.random()*74)+1);
+  myColorThree = color((int)(Math.random()*74)+81, (int)(Math.random()*74)+81, (int)(Math.random()*74)+81);
+
 }
 public void sierpinski(float x, float y, float len) 
 {
@@ -17,12 +24,12 @@ public void sierpinski(float x, float y, float len)
     triangle(x, y, x+len, y, x+len/2, y-len);
 
   else {
-    stroke(40, 191, 73);
-    fill(31, 33, 135);
+    stroke(myColorOne);
+    fill(myColorOne);
  sierpinski(x,y,len/2);
-    fill(0, 227, 247);
+    fill(myColorTwo);
     sierpinski(x+len/2,y,len/2);
-    fill(110, 255, 161);
+    fill(myColorThree);
     sierpinski(x+len/4,y-len/2,len/2);
   }
 }
